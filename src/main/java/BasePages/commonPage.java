@@ -14,6 +14,6 @@ public class commonPage {
     public static By becomeSeller = By.xpath("//body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/a[1]/span[1]");
     public static By carousel = By.xpath("//body/div[@id='container']/div[1]/div[3]/div[2]/div[1]/div[3]/*[1]");
     public static By removeConfirm = By.xpath("//body/div[@id='container']/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]");
-    public static By twoWheeler = By.xpath("//div[contains(text(),'2-Wheelers')]");
+    public static By fashion = By.xpath("//div[contains(text(),'Fashion')]");
 
 }

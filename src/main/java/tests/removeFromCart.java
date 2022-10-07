@@ -14,13 +14,15 @@ public class removeFromCart extends BasePages.mainPage {
 
     @Test
     public void remove() throws InterruptedException {
-        test.log(LogStatus.INFO,"Login using valid credentials");
+        test.log(LogStatus.INFO,"Test Passed");
+
+        logger.info("Login using valid credentials");
         // Login using the credentials
-        driver.findElement(LoginPage.email_field).sendKeys(ReadingPropertiesFile.getProperty("email"));
-        driver.findElement(LoginPage.password_field).sendKeys(ReadingPropertiesFile.getProperty("password"));
+        driver.findElement(LoginPage.email_field).sendKeys(username);
+        driver.findElement(LoginPage.password_field).sendKeys(password);
         driver.findElement(LoginPage.continue_btn).click();
         Thread.sleep(2000);
-        test.log(LogStatus.INFO,"Going to cart");
+        logger.info("Going to cart");
 //        click on cart button
         driver.findElement(LoginPage.gotoCart).click();
         Thread.sleep(2000);
@@ -28,7 +30,7 @@ public class removeFromCart extends BasePages.mainPage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,700)");
 //        removing the item from cart
-        test.log(LogStatus.INFO,"Removing item from cart");
+        logger.info("Removing item from cart");
         driver.findElement(commonPage.removeButton).click();
         driver.findElement(commonPage.removeConfirm).click();
 

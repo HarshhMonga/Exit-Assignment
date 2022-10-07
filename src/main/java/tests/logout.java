@@ -13,20 +13,21 @@ public class logout extends BasePages.mainPage {
     public  static Logger logger = Logger.getLogger(logout.class);
     @Test
     public void profile() throws InterruptedException {
-        test.log(LogStatus.INFO,"Login using Valid Credentials");
+        test.log(LogStatus.INFO,"Test Passed");
+        logger.info("Login using Valid Credentials");
         // login using the credentials
-        driver.findElement(LoginPage.email_field).sendKeys(ReadingPropertiesFile.getProperty("email"));
-        driver.findElement(LoginPage.password_field).sendKeys(ReadingPropertiesFile.getProperty("password"));
+        driver.findElement(LoginPage.email_field).sendKeys(username);
+        driver.findElement(LoginPage.password_field).sendKeys(password);
         driver.findElement(LoginPage.continue_btn).click();
         Thread.sleep(3000);
 //        hover over my account button
-        test.log(LogStatus.INFO,"Hovering over My account button");
+        logger.info("Hovering over My account button");
         WebElement accMenu = driver.findElement(By.xpath("//div[contains(text(),'My Account')]"));
         Actions actions = new Actions(driver);
         actions.moveToElement(accMenu).build().perform();
         Thread.sleep(3000);
 //        clicking on logout button
-        test.log(LogStatus.INFO,"Logging out from Flipkart");
+        logger.info("Logging out from Flipkart");
         WebElement logout = driver.findElement(By.xpath("//div[contains(text(),'Logout')]"));
         actions.moveToElement(logout).click().build().perform();
     }

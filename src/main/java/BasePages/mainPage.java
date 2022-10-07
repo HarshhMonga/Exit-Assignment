@@ -3,6 +3,7 @@ package BasePages;
 import Utilities.ExtentManager;
 import Utilities.ReadingPropertiesFile;
 import Utilities.Screenshots;
+import Utilities.readExcel;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -21,12 +22,15 @@ import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class mainPage {
     public static WebDriver driver;
     public static ExtentReports extent;
     public static ExtentTest test;
+    public String username;
+    public String password;
     @BeforeSuite
     public void inintializeSetup() {
         String log4jPath = System.getProperty("user.dir")+ "\\log4j.properties";
@@ -45,6 +49,7 @@ public class mainPage {
         String chromebrowser = ReadingPropertiesFile.getProperty("chrome_path");
         String firefoxbrowser = ReadingPropertiesFile.getProperty("firefox_path");
         String edgebrowser = ReadingPropertiesFile.getProperty("edge_path");
+
 //       driver code to run the browser
         if (mode.equals("non-headless")){
             if (browser.equals("chrome")){
@@ -88,6 +93,15 @@ public class mainPage {
         //Go To The Application URL
         driver.get(ReadingPropertiesFile.getProperty("url"));
         test = extent.startTest(method.getName());
+    }
+    @BeforeMethod
+    public void data(){
+        readExcel excel = new readExcel("C:\\Stuff\\Exit Assignment\\ExitAssignment\\src\\main\\java\\Utilities\\data.xlsx");
+        Map<String, String> data = excel.getData();
+        for (String k : data.keySet()) {
+            username = k;
+            password = data.get(k);
+        }
     }
     @AfterMethod
     public void afterMethod(ITestResult result) throws IOException, InterruptedException {

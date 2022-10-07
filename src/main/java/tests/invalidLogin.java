@@ -11,9 +11,10 @@ public class invalidLogin extends BasePages.mainPage {
 
     @Test
     public void signIn() {
-        test.log(LogStatus.INFO,"Login using Invalid Credentials");
+        test.log(LogStatus.INFO,"Test Passed");
+        logger.info("Login using Invalid Credentials");
 //        login using invalid credentials
-        driver.findElement(LoginPage.email_field).sendKeys(ReadingPropertiesFile.getProperty("email"));
+        driver.findElement(LoginPage.email_field).sendKeys(username);
         driver.findElement(LoginPage.password_field).sendKeys(ReadingPropertiesFile.getProperty("wrong_password"));
         driver.findElement(LoginPage.continue_btn).click();
 

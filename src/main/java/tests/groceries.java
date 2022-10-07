@@ -11,14 +11,15 @@ public class groceries extends BasePages.mainPage {
     public  static Logger logger = Logger.getLogger(groceries.class);
     @Test
     public void groceriespage() throws InterruptedException {
-        test.log(LogStatus.INFO,"Login Using credentials");
+        test.log(LogStatus.INFO,"Test Passed");
+        logger.info("Login Using credentials");
         // login using the credentials
-        driver.findElement(LoginPage.email_field).sendKeys(ReadingPropertiesFile.getProperty("email"));
-        driver.findElement(LoginPage.password_field).sendKeys(ReadingPropertiesFile.getProperty("password"));
+        driver.findElement(LoginPage.email_field).sendKeys(username);
+        driver.findElement(LoginPage.password_field).sendKeys(password);
         driver.findElement(LoginPage.continue_btn).click();
         Thread.sleep(2000);
 //        clicking on groceries button
-        test.log(LogStatus.INFO,"Groceries Button Clicked");
+        logger.info("Groceries Button Clicked");
         driver.findElement(commonPage.groceries).click();
     }
 }

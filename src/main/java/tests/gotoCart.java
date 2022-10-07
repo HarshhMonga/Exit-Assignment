@@ -12,14 +12,15 @@ public class gotoCart extends BasePages.mainPage {
 
     @Test
     public void cart() throws InterruptedException {
-        test.log(LogStatus.INFO,"Login using credentials");
+        test.log(LogStatus.INFO,"Test Passed");
+        logger.info("Login using credentials");
         // login using the credentials
-        driver.findElement(LoginPage.email_field).sendKeys(ReadingPropertiesFile.getProperty("email"));
-        driver.findElement(LoginPage.password_field).sendKeys(ReadingPropertiesFile.getProperty("password"));
+        driver.findElement(LoginPage.email_field).sendKeys(username);
+        driver.findElement(LoginPage.password_field).sendKeys(password);
         driver.findElement(LoginPage.continue_btn).click();
         Thread.sleep(2000);
 //        clicking on cart button
-        test.log(LogStatus.INFO,"Going to cart");
+        logger.info("Going to cart");
         driver.findElement(LoginPage.gotoCart).click();
     }
 }

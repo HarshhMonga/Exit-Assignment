@@ -21,8 +21,8 @@ public class addtoCart extends BasePages.mainPage{
         test.log(LogStatus.INFO,"Test Passed");
 //        login via credentials
         logger.info("login to flipkart");
-        driver.findElement(LoginPage.email_field).sendKeys(ReadingPropertiesFile.getProperty("email"));
-        driver.findElement(LoginPage.password_field).sendKeys(ReadingPropertiesFile.getProperty("password"));
+        driver.findElement(LoginPage.email_field).sendKeys(username);
+        driver.findElement(LoginPage.password_field).sendKeys(password);
         driver.findElement(LoginPage.continue_btn).click();
         Thread.sleep(2000);
 //        searching the item

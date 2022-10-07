@@ -8,9 +8,9 @@ import myjar.Common;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
-public class SearchItem extends BasePages.mainPage{
+public class searchItem extends BasePages.mainPage{
 
-    public  static Logger logger = Logger.getLogger(SearchItem.class);
+    public  static Logger logger = Logger.getLogger(searchItem.class);
 
     @Test
     public void search(){

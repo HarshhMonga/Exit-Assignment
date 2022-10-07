@@ -1,7 +1,5 @@
 package tests;
 import BasePages.LoginPage;
-import BasePages.commonPage;
-import Utilities.ReadingPropertiesFile;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -9,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class Orders extends BasePages.mainPage {
-    public  static Logger logger = Logger.getLogger(Orders.class);
+public class orders extends BasePages.mainPage {
+    public  static Logger logger = Logger.getLogger(orders.class);
     @Test
     public void profile() throws InterruptedException {
         test.log(LogStatus.INFO,"Test Passed");
@@ -29,7 +27,7 @@ public class Orders extends BasePages.mainPage {
         Thread.sleep(3000);
 //        clicking on orders sub menu button
         logger.info("Going to orders page");
-        WebElement orders = driver.findElement(By.xpath("//div[contains(text(),'Orders')]"));
+        WebElement orders = driver.findElement(By.xpath("//div[contains(text(),'orders')]"));
         actions.moveToElement(orders).click().build().perform();
     }
 }
